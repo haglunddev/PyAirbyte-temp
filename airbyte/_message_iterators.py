@@ -110,7 +110,7 @@ class AirbyteMessageIterator:
                             ),
                             # `meta` and `namespace` are not handled:
                             meta=None,
-                            namespace="shopify",
+                            namespace="",
                         ),
                     )
 

@@ -235,6 +235,7 @@ class SqlCatalogBackend(CatalogBackendBase):
                     name=stream.stream_name,
                     json_schema=json.loads(stream.catalog_metadata),  # type: ignore[arg-type]
                     supported_sync_modes=[SyncMode.full_refresh],
+                    namespace=""
                 ),
                 sync_mode=SyncMode.full_refresh,
                 destination_sync_mode=DestinationSyncMode.append,
