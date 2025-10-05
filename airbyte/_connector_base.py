@@ -468,8 +468,7 @@ class ConnectorBase(abc.ABC):
             suppress_stderr = progress_tracker is not None
             for line in self.executor.execute(args, stdin=stdin, suppress_stderr=suppress_stderr):
                 try:
-                    # message: AirbyteMessage = AirbyteMessage.model_validate_json(json_data=line)
-                    message: AirbyteMessage = AirbyteMessage.model_dump_json(json_data=line)
+                    message: AirbyteMessage = AirbyteMessage.model_validate_json(json_data=line)
                     if progress_tracker and message.record:
                         stream_name = message.record.stream
                         progress_tracker.tally_bytes_read(

@@ -98,6 +98,7 @@ class AirbyteMessageIterator:
         def generator() -> Generator[AirbyteMessage, None, None]:
             for stream_name, dataset in read_result.items():
                 for record in dataset:
+                    print(record)
                     yield AirbyteMessage(
                         type=Type.RECORD,
                         record=AirbyteRecordMessage(
@@ -110,7 +111,7 @@ class AirbyteMessageIterator:
                             ),
                             # `meta` and `namespace` are not handled:
                             meta=None,
-                            namespace="",
+                            namespace=None,
                         ),
                     )
 
